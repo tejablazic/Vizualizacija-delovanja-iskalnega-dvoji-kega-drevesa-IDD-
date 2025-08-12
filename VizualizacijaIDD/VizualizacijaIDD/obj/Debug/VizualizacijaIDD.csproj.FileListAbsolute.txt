@@ -1,0 +1,10 @@
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.AssemblyReference.cache
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.OknoVizualizacijaIDD.resources
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.Properties.Resources.resources
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.GenerateResource.cache
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.CoreCompileInputs.cache
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.exe.config
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.exe
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.pdb
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.pdb
