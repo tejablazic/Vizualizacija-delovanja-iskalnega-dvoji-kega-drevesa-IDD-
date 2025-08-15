@@ -8,3 +8,4 @@ C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD-
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.pdb
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.pdb
+C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe.config

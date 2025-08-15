@@ -26,6 +26,18 @@ namespace VizualizacijaIDD
 
         // Metode skrbijo za ustrezen seznam korakov, ki so potrebni za izvajanje tovrstnih metod (iskanje, brisanje, vstavljanje)
 
+        public List<Korak> SestaviIzTabele(int[] tabela)
+        {
+            koraki = new List<Korak>(); // resetiramo seznam korakov
+
+            foreach (int x in tabela)
+            {
+                var korakiVstavitve = VstaviZKoraki(x); // vstavi in dobi korake
+                koraki.AddRange(korakiVstavitve);       // jih dodaj v glavni seznam
+            }
+
+            return koraki;
+        }
         public List<Korak> VstaviZKoraki(int podatek)
         {
             var koraki = new List<Korak>();

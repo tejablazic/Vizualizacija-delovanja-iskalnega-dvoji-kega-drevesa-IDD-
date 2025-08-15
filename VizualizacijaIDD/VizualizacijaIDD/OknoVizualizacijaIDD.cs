@@ -32,7 +32,16 @@ namespace VizualizacijaIDD
 
         private void btnUstvari_Click(object sender, EventArgs e)
         {
-            // MANJKA
+            string input = tbxUstvari.Text;
+
+            int[] elementi = input
+                .Split(',')
+                .Select(s => s.Trim())
+                .Select(int.Parse)            
+                .ToArray();
+            drevo.SestaviIzTabele(elementi);
+            trenutniKorak = 0;
+            PrikaziKorak(); // prikažemo prvi korak
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -63,6 +72,16 @@ namespace VizualizacijaIDD
                 trenutniKorak = 0;
                 PrikaziKorak();
             }
+        }
+
+        private void btnPonastavi_Click(object sender, EventArgs e)
+        {
+            osnovnoDrevo = new IDD();
+            drevo = new IDDKoraki(osnovnoDrevo);
+            drevo.koraki = new List<Korak>();
+
+            trenutniKorak = 0;
+            pnlPrikaz.Invalidate();
         }
 
         private void PrikaziKorak()
@@ -104,6 +123,7 @@ namespace VizualizacijaIDD
             NarisiDrevo(g, v.Desno, x + dx, y + 50, dx / 2);
         }
 
+        
     }
 
     
