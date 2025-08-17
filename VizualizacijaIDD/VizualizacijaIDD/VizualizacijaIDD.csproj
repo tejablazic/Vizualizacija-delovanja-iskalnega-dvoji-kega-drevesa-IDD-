@@ -58,6 +58,12 @@
     <Compile Include="ProgramVizualizacijaIDD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vozlisce.cs" />
+    <Compile Include="ZacetnoOkno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZacetnoOkno.Designer.cs">
+      <DependentUpon>ZacetnoOkno.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="OknoVizualizacijaIDD.resx">
       <DependentUpon>OknoVizualizacijaIDD.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,7 +16,8 @@ namespace VizualizacijaIDD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OknoVizualizacijaIDD());
+            //Application.Run(new OknoVizualizacijaIDD());
+            Application.Run(new ZacetnoOkno());
         }
     }
 }
