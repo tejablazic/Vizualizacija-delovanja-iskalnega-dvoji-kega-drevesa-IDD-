@@ -1,8 +1,0 @@
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\bin\Debug\IskalnoDvojiskoDrevo.exe.config
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\bin\Debug\IskalnoDvojiskoDrevo.exe
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\bin\Debug\IskalnoDvojiskoDrevo.pdb
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\obj\Debug\IskalnoDvojiskoDrevo.csproj.AssemblyReference.cache
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\obj\Debug\IskalnoDvojiskoDrevo.csproj.CoreCompileInputs.cache
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\obj\Debug\IskalnoDvojiskoDrevo.exe
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\obj\Debug\IskalnoDvojiskoDrevo.pdb
-C:\Users\cehne\Desktop\IDD\IskalnoDvojiskoDrevo\obj\Debug\IskalnoDvojiskoDrevo.exe.config

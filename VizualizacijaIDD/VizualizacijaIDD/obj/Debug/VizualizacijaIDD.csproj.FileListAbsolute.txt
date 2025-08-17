@@ -9,3 +9,13 @@ C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD-
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.pdb
 C:\Users\cehne\Desktop\Vizualizacija-delovanja-iskalnega-dvoji-kega-drevesa-IDD--main\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe.config
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.exe.config
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.exe
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\bin\Debug\VizualizacijaIDD.pdb
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.AssemblyReference.cache
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.OknoVizualizacijaIDD.resources
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.Properties.Resources.resources
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.GenerateResource.cache
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.csproj.CoreCompileInputs.cache
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe
+C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.pdb
