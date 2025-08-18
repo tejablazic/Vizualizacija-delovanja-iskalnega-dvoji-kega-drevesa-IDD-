@@ -34,16 +34,21 @@ namespace VizualizacijaIDD
 
         private void btnUstvari_Click(object sender, EventArgs e)
         {
-            string input = tbxUstvari.Text;
+            if (drevo.JePrazno())
+            {
 
-            int[] elementi = input
-                .Split(',')
-                .Select(s => s.Trim())
-                .Select(int.Parse)            
-                .ToArray();
-            drevo.SestaviIzTabele(elementi);
-            trenutniKorak = 0;
-            PrikaziKorak(); // prikažemo prvi korak
+                string input = tbxUstvari.Text;
+
+                int[] elementi = input
+                    .Split(',')
+                    .Select(s => s.Trim())
+                    .Select(int.Parse)
+                    .ToArray();
+                drevo.SestaviIzTabele(elementi);
+                trenutniKorak = 0;
+                PrikaziKorak(); // prikažemo prvi korak
+                
+            }
             tbxUstvari.Clear();
         }
 

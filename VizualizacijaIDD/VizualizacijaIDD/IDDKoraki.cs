@@ -171,6 +171,10 @@ namespace VizualizacijaIDD
             return vozlisce;
         }
 
+        public bool JePrazno()
+        {
+            return drevo.koren == null;
+        }
 
         private Vozlisce Najmanjsi(Vozlisce vozlisce)
         {
