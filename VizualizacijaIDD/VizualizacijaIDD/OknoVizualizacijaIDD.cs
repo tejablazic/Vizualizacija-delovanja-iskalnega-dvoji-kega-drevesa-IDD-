@@ -18,8 +18,6 @@ namespace VizualizacijaIDD
         private int? oznacenoVozlisce = null;
         private Brush barvaOznacenega = Brushes.Violet;
 
-        int trenutniKorak = 0;
-
         // podatki za postavitev drevesa
         private readonly Dictionary<Vozlisce, int> sirine = new Dictionary<Vozlisce, int>(); // hrani širine poddreves
         private readonly Dictionary<Vozlisce, PointF> pozicije = new Dictionary<Vozlisce, PointF>(); // hrani pozicije vozlišč (X,Y) v pikslih

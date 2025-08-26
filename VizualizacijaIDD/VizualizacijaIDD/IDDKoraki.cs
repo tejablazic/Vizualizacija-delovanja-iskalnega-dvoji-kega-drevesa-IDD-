@@ -18,11 +18,6 @@ namespace VizualizacijaIDD
 
         public Vozlisce Koren => drevo.koren;  // preusmeri dostop do korena
 
-        //metoda ki vrne koren drevesa
-        public Vozlisce DobiKoren()
-        {
-            return drevo.koren;
-        }
 
         // Metode skrbijo za ustrezen seznam korakov, ki so potrebni za izvajanje tovrstnih metod (iskanje, brisanje, vstavljanje)
 
