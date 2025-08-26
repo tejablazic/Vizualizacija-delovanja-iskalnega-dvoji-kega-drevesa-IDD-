@@ -15,8 +15,9 @@ namespace VizualizacijaIDD
         private IDD osnovnoDrevo;
         private IDDKoraki drevo;
 
-        private int? oznacenoVozlisce = null;
-        private Brush barvaOznacenega = Brushes.Violet;
+        private int trenutniKorak;
+        private int? oznacenoVozlisce;
+        private Brush barvaOznacenega;
 
         // podatki za postavitev drevesa
         private readonly Dictionary<Vozlisce, int> sirine = new Dictionary<Vozlisce, int>(); // hrani širine poddreves
@@ -38,6 +39,10 @@ namespace VizualizacijaIDD
             // ustvari IDDKoraki na podlagi osnovnega drevesa
             drevo = new IDDKoraki(osnovnoDrevo);
 
+            // inicializacija timerja za animacijo
+            animacijaTimer.Interval = 800; // 0.8s med koraki
+            animacijaTimer.Tick += AnimacijaTimer_Tick;
+
             // ob spremembi velikosti panela preračunamo postavitev
             pnlPrikaz.SizeChanged += (s, e) =>
             {
@@ -47,7 +52,7 @@ namespace VizualizacijaIDD
         }
 
         /// <summary>
-        /// Metoda, ki se požene ob kliku gumba USTVARI.
+        /// Metoda za ustvarjanje drevesa
         /// </summary>
         private void btnUstvari_Click(object sender, EventArgs e)
         {
@@ -73,68 +78,49 @@ namespace VizualizacijaIDD
         }
 
         /// <summary>
-        /// Metoda, ki se požene ob kliku gumba DODAJ.
+        /// Metoda za dodajanje novega vozlisca
         /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (int.TryParse(tbxDodaj.Text, out int v))
             {
-                drevo.VstaviZKoraki(v);
-                oznacenoVozlisce = v;
-                barvaOznacenega = Brushes.Violet;
-
-                LayoutTree();
+                drevo.koraki = drevo.PripraviVstavljanje(v);
                 trenutniKorak = 0;
-                PrikaziKorak();
-                pnlPrikaz.Invalidate();
-
+                ZacniAnimacijo();
                 tbxDodaj.Clear();
             }
         }
 
         /// <summary>
-        /// Metoda, ki se požene ob kliku gumba ODSTRANI.
+        /// Metoda za odstranitev vozlisca
         /// </summary>
         private void btnOdstrani_Click(object sender, EventArgs e)
         {
             if (int.TryParse(tbxOdstrani.Text, out int v))
             {
-                drevo.BrisiZKoraki(v);
-                oznacenoVozlisce = v;
-                barvaOznacenega = Brushes.Violet;
-
-                LayoutTree();
+                drevo.koraki = drevo.PripraviBrisanje(v);
                 trenutniKorak = 0;
-                PrikaziKorak();
-                pnlPrikaz.Invalidate();
-
+                ZacniAnimacijo();
                 tbxOdstrani.Clear();
             }
         }
 
         /// <summary>
-        /// Metoda, ki se požene ob kliku gumba IŠČI.
+        /// Metoda ki obarva iskano vozlisce
         /// </summary>
         private void btnIsci_Click(object sender, EventArgs e)
         {
             if (int.TryParse(tbxIsci.Text, out int v))
             {
-                drevo.IskanjeZKoraki(v);
-                oznacenoVozlisce = v;
-                barvaOznacenega = Brushes.Violet;
-
-                // LayoutTree ni nujen pri iskanju, a ohranja konsistentnost
-                LayoutTree();
+                drevo.koraki = drevo.IskanjeZKoraki(v);
                 trenutniKorak = 0;
-                PrikaziKorak();
-                pnlPrikaz.Invalidate();
-
+                ZacniAnimacijo();
                 tbxIsci.Clear();
             }
         }
 
         /// <summary>
-        /// Metoda, ki se požene ob kliku gumba PONASTAVI.
+        /// Metoda resetira drevo
         /// </summary>
         private void btnPonastavi_Click(object sender, EventArgs e)
         {
@@ -304,21 +290,27 @@ namespace VizualizacijaIDD
         /// </summary>
         private void DrawEdges(Graphics g, Vozlisce v)
         {
-            if (v == null) return;
+            if (v == null || !pozicije.ContainsKey(v)) return;
 
-            var poz = pozicije[v]; // koordinate trenutnega vozlišča
+            var poz = pozicije[v];
 
             if (v.Levo != null)
             {
-                var pozLevo = pozicije[v.Levo]; // koordinate levega sina
-                g.DrawLine(Pens.Black, poz, pozLevo); // nariše črto od očeta do levega sina
-                DrawEdges(g, v.Levo);
+                if (pozicije.ContainsKey(v.Levo))
+                {
+                    var pozLevo = pozicije[v.Levo];
+                    g.DrawLine(Pens.Black, poz, pozLevo);
+                    DrawEdges(g, v.Levo);
+                }
             }
             if (v.Desno != null)
             {
-                var pozDesno = pozicije[v.Desno];
-                g.DrawLine(Pens.Black, poz, pozDesno);
-                DrawEdges(g, v.Desno);
+                if (pozicije.ContainsKey(v.Desno))
+                {
+                    var pozDesno = pozicije[v.Desno];
+                    g.DrawLine(Pens.Black, poz, pozDesno);
+                    DrawEdges(g, v.Desno);
+                }
             }
         }
 
@@ -353,6 +345,61 @@ namespace VizualizacijaIDD
             DrawNodes(g, v.Levo);
             DrawNodes(g, v.Desno);
         }
+
+        private void ZacniAnimacijo()
+        {
+            LayoutTree();
+            trenutniKorak = 0;
+            oznacenoVozlisce = null;
+            barvaOznacenega = Brushes.Violet;
+            animacijaTimer.Start();
+        }
+
+        private void AnimacijaTimer_Tick(object sender, EventArgs e)
+        {
+            if (drevo.koraki == null || trenutniKorak >= drevo.koraki.Count)
+            {
+                animacijaTimer.Stop();
+                return;
+            }
+
+            var korak = drevo.koraki[trenutniKorak];
+
+            // izvedi dejanski poseg, če je vstavljanje ali brisanje
+            if (korak.Akcija == "vstavi")
+            {
+                // tu dejansko vstavi element v drevo
+                drevo.VstaviZKoraki(korak.TrenutniPodatek.Value); // zdaj se drevo spremeni
+            }
+            else if (korak.Akcija == "brisanje vozlišča")
+            {
+                // tu dejansko odstrani element
+                drevo.DejanskoBrisi(korak.TrenutniPodatek.Value);
+            }
+
+            // označi vozlišče za vizualizacijo
+            oznacenoVozlisce = korak.TrenutniPodatek;
+
+            // barva glede na akcijo
+            switch (korak.Akcija)
+            {
+                case "primerjaj": barvaOznacenega = Brushes.Orange; break;
+                case "pojdi levo":
+                case "pojdi desno": barvaOznacenega = Brushes.LightGreen; break;
+                case "najdeno": barvaOznacenega = Brushes.LightCoral; break;
+                case "vstavi": barvaOznacenega = Brushes.Violet; break;
+                case "brisanje vozlišča": barvaOznacenega = Brushes.Red; break;
+                default: barvaOznacenega = Brushes.Gray; break;
+            }
+
+            lblRazlaga.Text = korak.Akcija + (korak.TrenutniPodatek != null ? $" ({korak.TrenutniPodatek})" : "");
+
+            LayoutTree();       // osveži pozicije po vsakem posegu
+            pnlPrikaz.Invalidate(); // ponovno nariši
+
+            trenutniKorak++;
+        }
+
 
     }
 }

@@ -18,6 +18,11 @@ namespace VizualizacijaIDD
 
         public Vozlisce Koren => drevo.koren;  // preusmeri dostop do korena
 
+        //metoda ki vrne koren drevesa
+        public Vozlisce DobiKoren()
+        {
+            return drevo.koren;
+        }
 
         // Metode skrbijo za ustrezen seznam korakov, ki so potrebni za izvajanje tovrstnih metod (iskanje, brisanje, vstavljanje)
 
@@ -156,11 +161,16 @@ namespace VizualizacijaIDD
                     return vozlisce.Levo;
                 }
 
-                Vozlisce min = Najmanjsi(vozlisce.Desno);
-                koraki.Add(new Korak { TrenutniPodatek = min.Podatek, Akcija = "najdi naslednika (najmanjši v desnem)" });
+                //Vozlisce min = Najmanjsi(vozlisce.Desno);
+                //koraki.Add(new Korak { TrenutniPodatek = min.Podatek, Akcija = "najdi naslednika (najmanjši v desnem)" });
 
-                vozlisce.Podatek = min.Podatek;
-                vozlisce.Desno = HelperBrisiZKoraku(vozlisce.Desno, min.Podatek, koraki);
+                //vozlisce.Podatek = min.Podatek;
+                //vozlisce.Desno = HelperBrisiZKoraku(vozlisce.Desno, min.Podatek, koraki);
+
+                //  naslednik bo uporabljen (animacija)
+                // dejanski swap in odstranitev izvedemo kasneje
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "nastavi naslednika (animacija)" });
+
             }
 
             return vozlisce;
@@ -179,5 +189,107 @@ namespace VizualizacijaIDD
             }
             return vozlisce;
         }
+
+        // Pripravi korake za vstavljanje, ne da bi spreminjal drevo
+        public List<Korak> PripraviVstavljanje(int podatek)
+        {
+            var koraki = new List<Korak>();
+            HelperPripraviVstavljanje(drevo.koren, podatek, koraki);
+            this.koraki = koraki;
+            return koraki;
+        }
+
+        private void HelperPripraviVstavljanje(Vozlisce vozlisce, int podatek, List<Korak> koraki)
+        {
+            if (vozlisce == null)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = podatek, Akcija = "vstavi" });
+                return; // ne spreminjamo drevesa
+            }
+
+            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
+
+            if (podatek < vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
+                HelperPripraviVstavljanje(vozlisce.Levo, podatek, koraki);
+            }
+            else if (podatek > vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
+                HelperPripraviVstavljanje(vozlisce.Desno, podatek, koraki);
+            }
+            else
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "napaka - podatek že obstaja" });
+            }
+        }
+
+        // Pripravi korake za brisanje, ne da bi spreminjal drevo
+        public List<Korak> PripraviBrisanje(int podatek)
+        {
+            var koraki = new List<Korak>();
+            HelperPripraviBrisanje(drevo.koren, podatek, koraki);
+            this.koraki = koraki;
+            return koraki;
+        }
+
+        private void HelperPripraviBrisanje(Vozlisce vozlisce, int podatek, List<Korak> koraki)
+        {
+            if (vozlisce == null)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "ni za brisat (null)" });
+                return;
+            }
+
+            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
+
+            if (podatek < vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
+                HelperPripraviBrisanje(vozlisce.Levo, podatek, koraki);
+            }
+            else if (podatek > vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
+                HelperPripraviBrisanje(vozlisce.Desno, podatek, koraki);
+            }
+            else
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "brisanje vozlišča" });
+                // ne spreminjamo drevesa
+            }
+        }
+
+        public Vozlisce DejanskoBrisi(int podatek)
+        {
+            drevo.koren = HelperDejanskoBrisi(drevo.koren, podatek);
+            return drevo.koren;
+        }
+
+        private Vozlisce HelperDejanskoBrisi(Vozlisce vozlisce, int podatek)
+        {
+            if (vozlisce == null) return null;
+
+            if (podatek < vozlisce.Podatek)
+                vozlisce.Levo = HelperDejanskoBrisi(vozlisce.Levo, podatek);
+            else if (podatek > vozlisce.Podatek)
+                vozlisce.Desno = HelperDejanskoBrisi(vozlisce.Desno, podatek);
+            else
+            {
+                // tukaj dejansko izbrišeš vozlišče
+                if (vozlisce.Levo == null) return vozlisce.Desno;
+                if (vozlisce.Desno == null) return vozlisce.Levo;
+
+                // vozlišče z dvema otrokoma
+                Vozlisce min = Najmanjsi(vozlisce.Desno);
+                vozlisce.Podatek = min.Podatek;
+                vozlisce.Desno = HelperDejanskoBrisi(vozlisce.Desno, min.Podatek);
+            }
+
+            return vozlisce;
+        }
+
+
     }
 }

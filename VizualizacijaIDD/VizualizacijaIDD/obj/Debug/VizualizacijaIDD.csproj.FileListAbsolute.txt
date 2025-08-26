@@ -32,3 +32,4 @@ C:\Users\cehne\Desktop\VizualizacijaIDD\VizualizacijaIDD\VizualizacijaIDD\obj\De
 C:\Users\cehne\Desktop\VizualizacijaIDD\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.pdb
 C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.exe.config
 C:\Users\Teja\Desktop\Projekt PROG3\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.ZacetnoOkno.resources
+C:\Users\cehne\Desktop\VizualizacijaIDD\VizualizacijaIDD\VizualizacijaIDD\obj\Debug\VizualizacijaIDD.ZacetnoOkno.resources
