@@ -49,6 +49,10 @@ namespace VizualizacijaIDD
                 LayoutTree();
                 pnlPrikaz.Invalidate();
             };
+
+            // onemogočimo klike na gumba 'Nazaj' in 'Naprej'
+            btnNazaj.Enabled = false;
+            btnNaprej.Enabled = false;
         }
 
         /// <summary>
@@ -352,7 +356,21 @@ namespace VizualizacijaIDD
             trenutniKorak = 0;
             oznacenoVozlisce = null;
             barvaOznacenega = Brushes.Violet;
-            animacijaTimer.Start();
+
+            // ročni način
+            if (rbRocno.Checked)
+            {
+                animacijaTimer.Stop(); // ne zaženemo timerja
+                btnNaprej.Enabled = true; // omogočimo gumba Nazaj/Naprej
+                btnNazaj.Enabled = true;
+                pnlPrikaz.Invalidate();
+                return; // brez animacije
+            }
+
+            // animacija
+            btnNaprej.Enabled = false; // onemogočimo gumba Nazaj/Naprej
+            btnNazaj.Enabled = false;
+            animacijaTimer.Start(); // poženemo timer
         }
 
         private void AnimacijaTimer_Tick(object sender, EventArgs e)
@@ -394,12 +412,53 @@ namespace VizualizacijaIDD
 
             lblRazlaga.Text = korak.Akcija + (korak.TrenutniPodatek != null ? $" ({korak.TrenutniPodatek})" : "");
 
-            LayoutTree();       // osveži pozicije po vsakem posegu
+            LayoutTree(); // osveži pozicije po vsakem posegu
             pnlPrikaz.Invalidate(); // ponovno nariši
 
             trenutniKorak++;
         }
 
 
+        // metode za spreminjanje hitrosti animacije
+        private void rb0_5x_CheckedChanged(object sender, EventArgs e) { 
+            if (((RadioButton)sender).Checked) { 
+                animacijaTimer.Interval = 3000; 
+            } 
+        }
+        private void rb1x_CheckedChanged(object sender, EventArgs e) { 
+            if (((RadioButton)sender).Checked) { 
+                animacijaTimer.Interval = 2000; 
+            } 
+        }
+        private void rb1_5x_CheckedChanged(object sender, EventArgs e) { 
+            if (((RadioButton)sender).Checked) { 
+                animacijaTimer.Interval = 1000; 
+            } 
+        }
+        private void rbRocno_CheckedChanged(object sender, EventArgs e) {
+            if (((RadioButton)sender).Checked)
+            {
+                animacijaTimer.Stop(); // takoj ustavi animacijo
+                btnNaprej.Enabled = true; // omogoči gumba Nazaj/Naprej
+                btnNazaj.Enabled = true;
+            }
+        }
+
+        private void btnNazaj_Click(object sender, EventArgs e)
+        {
+            if (drevo.koraki == null || drevo.koraki.Count == 0) 
+                return;
+
+            if (trenutniKorak <= 0)
+                return;
+
+            trenutniKorak = Math.Max(0, trenutniKorak - 2);
+            AnimacijaTimer_Tick(sender, e);
+        }
+
+        private void btnNaprej_Click(object sender, EventArgs e)
+        {
+            AnimacijaTimer_Tick(sender, e);
+        }
     }
 }
