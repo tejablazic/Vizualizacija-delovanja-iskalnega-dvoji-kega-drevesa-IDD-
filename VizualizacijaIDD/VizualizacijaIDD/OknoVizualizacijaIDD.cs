@@ -79,6 +79,7 @@ namespace VizualizacijaIDD
                 pnlPrikaz.Invalidate();
             }
             tbxUstvari.Clear();
+            btnUstvari.Enabled = false;
         }
 
         /// <summary>
@@ -92,7 +93,9 @@ namespace VizualizacijaIDD
                 trenutniKorak = 0;
                 ZacniAnimacijo();
                 tbxDodaj.Clear();
+                btnUstvari.Enabled = false;
             }
+
         }
 
         /// <summary>
@@ -139,6 +142,8 @@ namespace VizualizacijaIDD
 
             LayoutTree();
             pnlPrikaz.Invalidate();
+            btnUstvari.Enabled = true;
+            lblRazlaga.Text = "";
         }
 
         /// <summary>
@@ -422,17 +427,23 @@ namespace VizualizacijaIDD
         // metode za spreminjanje hitrosti animacije
         private void rb0_5x_CheckedChanged(object sender, EventArgs e) { 
             if (((RadioButton)sender).Checked) { 
-                animacijaTimer.Interval = 3000; 
+                animacijaTimer.Interval = 2000;
+                btnNaprej.Enabled = false; // onemogoči gumba Nazaj/Naprej
+                btnNazaj.Enabled = false;
             } 
         }
         private void rb1x_CheckedChanged(object sender, EventArgs e) { 
             if (((RadioButton)sender).Checked) { 
-                animacijaTimer.Interval = 2000; 
+                animacijaTimer.Interval = 1000;
+                btnNaprej.Enabled = false; // onemogoči gumba Nazaj/Naprej
+                btnNazaj.Enabled = false;
             } 
         }
         private void rb1_5x_CheckedChanged(object sender, EventArgs e) { 
             if (((RadioButton)sender).Checked) { 
-                animacijaTimer.Interval = 1000; 
+                animacijaTimer.Interval = 500;
+                btnNaprej.Enabled = false; // onemogoči gumba Nazaj/Naprej
+                btnNazaj.Enabled = false;
             } 
         }
         private void rbRocno_CheckedChanged(object sender, EventArgs e) {

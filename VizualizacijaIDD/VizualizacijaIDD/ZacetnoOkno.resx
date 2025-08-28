@@ -119,9 +119,20 @@
   </resheader>
   <data name="label2.Text" xml:space="preserve">
     <value>Navodila:
-- V polje 'Ustvari' vnesi seznam števil, ločenih z vejico (npr. 50,25,75,12,...), nato klikni USTVARI.
+
+- V polje USTVARI vnesi seznam števil, ločenih z vejico (npr. 50,25,75,12,...), nato klikni USTVARI.
+  Ta opcija je na voljo samo na začetku, ko prvič ustvariš drevo.
+
+- Drevo lahko gradiš tudi postopoma z uporabo gumba DODAJ, s katerim dodajaš posamezna števila.
+
 - Z gumbi DODAJ, ODSTRANI in IŠČI lahko izvajaš operacije nad drevesom.
-- Izbrano (dodano/iskano/brisano) vozlišče se obarva.
+
+- Vozlišča se v obdelavi animacije obarvajo.
+
+- Izbereš si lahko tudi hitrost animacije. Privzeta vrednost je 1x. V primeru ročnega premikanja uporabi gumba     NAPREJ / NAZAJ.
+
+- Če želiš začeti znova klikni PONASTAVI.
+
 - Drevo se prilagaja velikosti okna.
 
 Klikni gumb START za začetek.</value>

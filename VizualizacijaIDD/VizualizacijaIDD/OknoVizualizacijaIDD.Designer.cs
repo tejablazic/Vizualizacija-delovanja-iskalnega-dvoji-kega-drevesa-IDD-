@@ -52,10 +52,10 @@
             // 
             // btnUstvari
             // 
-            this.btnUstvari.Location = new System.Drawing.Point(136, 12);
-            this.btnUstvari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUstvari.Location = new System.Drawing.Point(124, 9);
+            this.btnUstvari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUstvari.Name = "btnUstvari";
-            this.btnUstvari.Size = new System.Drawing.Size(75, 23);
+            this.btnUstvari.Size = new System.Drawing.Size(78, 36);
             this.btnUstvari.TabIndex = 3;
             this.btnUstvari.Text = "Ustvari";
             this.btnUstvari.UseVisualStyleBackColor = true;
@@ -63,18 +63,18 @@
             // 
             // tbxUstvari
             // 
-            this.tbxUstvari.Location = new System.Drawing.Point(12, 12);
-            this.tbxUstvari.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxUstvari.Location = new System.Drawing.Point(22, 18);
+            this.tbxUstvari.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxUstvari.Name = "tbxUstvari";
-            this.tbxUstvari.Size = new System.Drawing.Size(100, 22);
+            this.tbxUstvari.Size = new System.Drawing.Size(98, 20);
             this.tbxUstvari.TabIndex = 2;
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(136, 39);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(124, 50);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(78, 36);
             this.btnDodaj.TabIndex = 5;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -82,18 +82,18 @@
             // 
             // tbxDodaj
             // 
-            this.tbxDodaj.Location = new System.Drawing.Point(12, 39);
-            this.tbxDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxDodaj.Location = new System.Drawing.Point(22, 59);
+            this.tbxDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxDodaj.Name = "tbxDodaj";
-            this.tbxDodaj.Size = new System.Drawing.Size(100, 22);
+            this.tbxDodaj.Size = new System.Drawing.Size(98, 20);
             this.tbxDodaj.TabIndex = 4;
             // 
             // btnOdstrani
             // 
-            this.btnOdstrani.Location = new System.Drawing.Point(136, 68);
-            this.btnOdstrani.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOdstrani.Location = new System.Drawing.Point(124, 93);
+            this.btnOdstrani.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOdstrani.Name = "btnOdstrani";
-            this.btnOdstrani.Size = new System.Drawing.Size(75, 23);
+            this.btnOdstrani.Size = new System.Drawing.Size(78, 36);
             this.btnOdstrani.TabIndex = 7;
             this.btnOdstrani.Text = "Odstrani";
             this.btnOdstrani.UseVisualStyleBackColor = true;
@@ -101,18 +101,18 @@
             // 
             // tbxOdstrani
             // 
-            this.tbxOdstrani.Location = new System.Drawing.Point(12, 68);
-            this.tbxOdstrani.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxOdstrani.Location = new System.Drawing.Point(22, 102);
+            this.tbxOdstrani.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxOdstrani.Name = "tbxOdstrani";
-            this.tbxOdstrani.Size = new System.Drawing.Size(100, 22);
+            this.tbxOdstrani.Size = new System.Drawing.Size(98, 20);
             this.tbxOdstrani.TabIndex = 6;
             // 
             // btnIsci
             // 
-            this.btnIsci.Location = new System.Drawing.Point(136, 96);
-            this.btnIsci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIsci.Location = new System.Drawing.Point(124, 136);
+            this.btnIsci.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIsci.Name = "btnIsci";
-            this.btnIsci.Size = new System.Drawing.Size(75, 23);
+            this.btnIsci.Size = new System.Drawing.Size(78, 36);
             this.btnIsci.TabIndex = 9;
             this.btnIsci.Text = "Išči";
             this.btnIsci.UseVisualStyleBackColor = true;
@@ -120,18 +120,19 @@
             // 
             // tbxIsci
             // 
-            this.tbxIsci.Location = new System.Drawing.Point(12, 96);
-            this.tbxIsci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxIsci.Location = new System.Drawing.Point(22, 145);
+            this.tbxIsci.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxIsci.Name = "tbxIsci";
-            this.tbxIsci.Size = new System.Drawing.Size(100, 22);
+            this.tbxIsci.Size = new System.Drawing.Size(98, 20);
             this.tbxIsci.TabIndex = 8;
             // 
             // btnPonastavi
             // 
-            this.btnPonastavi.Location = new System.Drawing.Point(93, 415);
-            this.btnPonastavi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPonastavi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPonastavi.Location = new System.Drawing.Point(22, 399);
+            this.btnPonastavi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPonastavi.Name = "btnPonastavi";
-            this.btnPonastavi.Size = new System.Drawing.Size(88, 23);
+            this.btnPonastavi.Size = new System.Drawing.Size(101, 43);
             this.btnPonastavi.TabIndex = 10;
             this.btnPonastavi.Text = "Ponastavi";
             this.btnPonastavi.UseVisualStyleBackColor = true;
@@ -140,19 +141,19 @@
             // pnlPrikaz
             // 
             this.pnlPrikaz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pnlPrikaz.Location = new System.Drawing.Point(237, 11);
-            this.pnlPrikaz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlPrikaz.Location = new System.Drawing.Point(223, 9);
+            this.pnlPrikaz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlPrikaz.Name = "pnlPrikaz";
-            this.pnlPrikaz.Size = new System.Drawing.Size(551, 428);
+            this.pnlPrikaz.Size = new System.Drawing.Size(413, 427);
             this.pnlPrikaz.TabIndex = 11;
             this.pnlPrikaz.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPrikaz_Paint);
             // 
             // btnNaprej
             // 
-            this.btnNaprej.Location = new System.Drawing.Point(135, 386);
-            this.btnNaprej.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNaprej.Location = new System.Drawing.Point(135, 292);
+            this.btnNaprej.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNaprej.Name = "btnNaprej";
-            this.btnNaprej.Size = new System.Drawing.Size(75, 23);
+            this.btnNaprej.Size = new System.Drawing.Size(56, 26);
             this.btnNaprej.TabIndex = 12;
             this.btnNaprej.Text = "Naprej";
             this.btnNaprej.UseVisualStyleBackColor = true;
@@ -160,10 +161,10 @@
             // 
             // btnNazaj
             // 
-            this.btnNazaj.Location = new System.Drawing.Point(53, 386);
-            this.btnNazaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNazaj.Location = new System.Drawing.Point(74, 292);
+            this.btnNazaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNazaj.Name = "btnNazaj";
-            this.btnNazaj.Size = new System.Drawing.Size(75, 23);
+            this.btnNazaj.Size = new System.Drawing.Size(56, 26);
             this.btnNazaj.TabIndex = 13;
             this.btnNazaj.Text = "Nazaj";
             this.btnNazaj.UseVisualStyleBackColor = true;
@@ -172,19 +173,20 @@
             // lblHitrost
             // 
             this.lblHitrost.AutoSize = true;
-            this.lblHitrost.Location = new System.Drawing.Point(12, 162);
+            this.lblHitrost.Location = new System.Drawing.Point(20, 211);
+            this.lblHitrost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHitrost.Name = "lblHitrost";
-            this.lblHitrost.Size = new System.Drawing.Size(80, 16);
+            this.lblHitrost.Size = new System.Drawing.Size(66, 13);
             this.lblHitrost.TabIndex = 14;
             this.lblHitrost.Text = "Izberi hitrost:";
             // 
             // rb0_5
             // 
             this.rb0_5.AutoSize = true;
-            this.rb0_5.Location = new System.Drawing.Point(99, 158);
-            this.rb0_5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rb0_5.Location = new System.Drawing.Point(85, 207);
+            this.rb0_5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rb0_5.Name = "rb0_5";
-            this.rb0_5.Size = new System.Drawing.Size(51, 20);
+            this.rb0_5.Size = new System.Drawing.Size(45, 17);
             this.rb0_5.TabIndex = 15;
             this.rb0_5.TabStop = true;
             this.rb0_5.Text = "0.5x";
@@ -194,10 +196,10 @@
             // rb1x
             // 
             this.rb1x.AutoSize = true;
-            this.rb1x.Location = new System.Drawing.Point(99, 185);
-            this.rb1x.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rb1x.Location = new System.Drawing.Point(85, 229);
+            this.rb1x.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rb1x.Name = "rb1x";
-            this.rb1x.Size = new System.Drawing.Size(41, 20);
+            this.rb1x.Size = new System.Drawing.Size(36, 17);
             this.rb1x.TabIndex = 16;
             this.rb1x.TabStop = true;
             this.rb1x.Text = "1x";
@@ -207,10 +209,10 @@
             // rbRocno
             // 
             this.rbRocno.AutoSize = true;
-            this.rbRocno.Location = new System.Drawing.Point(99, 236);
-            this.rbRocno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbRocno.Location = new System.Drawing.Point(85, 271);
+            this.rbRocno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbRocno.Name = "rbRocno";
-            this.rbRocno.Size = new System.Drawing.Size(132, 20);
+            this.rbRocno.Size = new System.Drawing.Size(106, 17);
             this.rbRocno.TabIndex = 17;
             this.rbRocno.TabStop = true;
             this.rbRocno.Text = "ročno premikanje";
@@ -220,10 +222,10 @@
             // rb1_5x
             // 
             this.rb1_5x.AutoSize = true;
-            this.rb1_5x.Location = new System.Drawing.Point(99, 210);
-            this.rb1_5x.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rb1_5x.Location = new System.Drawing.Point(85, 250);
+            this.rb1_5x.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rb1_5x.Name = "rb1_5x";
-            this.rb1_5x.Size = new System.Drawing.Size(51, 20);
+            this.rb1_5x.Size = new System.Drawing.Size(45, 17);
             this.rb1_5x.TabIndex = 18;
             this.rb1_5x.TabStop = true;
             this.rb1_5x.Text = "1.5x";
@@ -233,16 +235,18 @@
             // lblRazlaga
             // 
             this.lblRazlaga.AutoSize = true;
-            this.lblRazlaga.Location = new System.Drawing.Point(9, 308);
+            this.lblRazlaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRazlaga.Location = new System.Drawing.Point(24, 344);
+            this.lblRazlaga.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRazlaga.Name = "lblRazlaga";
-            this.lblRazlaga.Size = new System.Drawing.Size(0, 16);
+            this.lblRazlaga.Size = new System.Drawing.Size(0, 20);
             this.lblRazlaga.TabIndex = 20;
             // 
             // OknoVizualizacijaIDD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(690, 445);
             this.Controls.Add(this.lblRazlaga);
             this.Controls.Add(this.rb1_5x);
             this.Controls.Add(this.rbRocno);
@@ -261,7 +265,7 @@
             this.Controls.Add(this.tbxDodaj);
             this.Controls.Add(this.btnUstvari);
             this.Controls.Add(this.tbxUstvari);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "OknoVizualizacijaIDD";
             this.Text = "Vizualizacija IDD";
             this.ResumeLayout(false);

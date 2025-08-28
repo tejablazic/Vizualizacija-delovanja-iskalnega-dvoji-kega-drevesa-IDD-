@@ -80,7 +80,7 @@ namespace VizualizacijaIDD
             var koraki = new List<Korak>();
             bool najdeno = HelperIskanjeZKoraki(drevo.koren, podatek, koraki);
             if (!najdeno)
-                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "ni najdeno" });
+                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
             this.koraki = koraki;
             return koraki;
         }
@@ -238,7 +238,7 @@ namespace VizualizacijaIDD
         {
             if (vozlisce == null)
             {
-                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "ni za brisat (null)" });
+                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
                 return;
             }
 
