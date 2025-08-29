@@ -50,9 +50,10 @@ namespace VizualizacijaIDD
                 pnlPrikaz.Invalidate();
             };
 
-            // onemogočimo klike na gumba 'Nazaj' in 'Naprej'
+            // Privzete vrednosti na začetku
             btnNazaj.Enabled = false;
             btnNaprej.Enabled = false;
+            rb1x.Checked = true;
         }
 
         /// <summary>

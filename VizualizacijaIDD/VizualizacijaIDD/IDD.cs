@@ -20,7 +20,6 @@ namespace VizualizacijaIDD
         /// <summary>
         /// konstruktor za IDD ustvarjen s tabelo
         /// </summary>
-        /// <param name="tabela"></param>
         public IDD(int[] tabela)
         {
             this.koren = null;

@@ -8,172 +8,18 @@ namespace VizualizacijaIDD
 {
     internal class IDDKoraki
     {
-        private readonly IDD drevo;
-        public List<Korak> koraki;
+        private readonly IDD drevo;      // dejansko drevo
+        public List<Korak> koraki;       // seznam korakov za animacijo
 
         public IDDKoraki(IDD drevo)
         {
             this.drevo = drevo;
+            this.koraki = new List<Korak>();
         }
 
-        public Vozlisce Koren => drevo.koren;  // preusmeri dostop do korena
-
-        //metoda ki vrne koren drevesa
         public Vozlisce DobiKoren()
         {
             return drevo.koren;
-        }
-
-        // Metode skrbijo za ustrezen seznam korakov, ki so potrebni za izvajanje tovrstnih metod (iskanje, brisanje, vstavljanje)
-
-        public List<Korak> SestaviIzTabele(int[] tabela)
-        {
-            koraki = new List<Korak>(); // resetiramo seznam korakov
-
-            foreach (int x in tabela)
-            {
-                var korakiVstavitve = VstaviZKoraki(x); // vstavi in dobi korake
-                koraki.AddRange(korakiVstavitve);       // jih dodaj v glavni seznam
-            }
-
-            return koraki;
-        }
-        public List<Korak> VstaviZKoraki(int podatek)
-        {
-            var koraki = new List<Korak>();
-            drevo.koren = HelperVstaviZKoraki(drevo.koren, podatek, koraki);
-            this.koraki = koraki;
-            return koraki;
-        }
-
-        private Vozlisce HelperVstaviZKoraki(Vozlisce vozlisce, int podatek, List<Korak> koraki)
-        {
-            if (vozlisce == null)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "vstavi" });
-                return new Vozlisce(podatek);
-            }
-
-            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
-
-            if (podatek < vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
-                vozlisce.Levo = HelperVstaviZKoraki(vozlisce.Levo, podatek, koraki);
-            }
-            else if (podatek > vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
-                vozlisce.Desno = HelperVstaviZKoraki(vozlisce.Desno, podatek, koraki);
-            }
-            else
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "napaka - podatek že obstaja" });
-            }
-
-            return vozlisce;
-        }
-
-
-        public List<Korak> IskanjeZKoraki(int podatek)
-        {
-            var koraki = new List<Korak>();
-            bool najdeno = HelperIskanjeZKoraki(drevo.koren, podatek, koraki);
-            if (!najdeno)
-                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
-            this.koraki = koraki;
-            return koraki;
-        }
-
-        private bool HelperIskanjeZKoraki(Vozlisce vozlisce, int podatek, List<Korak> koraki)
-        {
-            if (vozlisce == null)
-                return false;
-
-            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
-
-            if (podatek == vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "najdeno" });
-                return true;
-            }
-
-            if (podatek < vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
-                return HelperIskanjeZKoraki(vozlisce.Levo, podatek, koraki);
-            }
-            else
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
-                return HelperIskanjeZKoraki(vozlisce.Desno, podatek, koraki);
-            }
-        }
-
-
-        public List<Korak> BrisiZKoraki(int podatek)
-        {
-            var koraki = new List<Korak>();
-            drevo.koren = HelperBrisiZKoraku(drevo.koren, podatek, koraki);
-            this.koraki = koraki;
-            return koraki;
-        }
-
-        private Vozlisce HelperBrisiZKoraku(Vozlisce vozlisce, int podatek, List<Korak> koraki)
-        {
-            if (vozlisce == null)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "ni za brisat (null)" });
-                return null;
-            }
-
-            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
-
-            if (podatek < vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
-                vozlisce.Levo = HelperBrisiZKoraku(vozlisce.Levo, podatek, koraki);
-            }
-            else if (podatek > vozlisce.Podatek)
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
-                vozlisce.Desno = HelperBrisiZKoraku(vozlisce.Desno, podatek, koraki);
-            }
-            else
-            {
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "brisanje vozlišča" });
-
-                if (vozlisce.Levo == null && vozlisce.Desno == null)
-                {
-                    koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "vozlišče brez otrok – izbriši" });
-                    return null;
-                }
-
-                if (vozlisce.Levo == null)
-                {
-                    koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "ima samo desnega otroka" });
-                    return vozlisce.Desno;
-                }
-
-                if (vozlisce.Desno == null)
-                {
-                    koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "ima samo levega otroka" });
-                    return vozlisce.Levo;
-                }
-
-                //Vozlisce min = Najmanjsi(vozlisce.Desno);
-                //koraki.Add(new Korak { TrenutniPodatek = min.Podatek, Akcija = "najdi naslednika (najmanjši v desnem)" });
-
-                //vozlisce.Podatek = min.Podatek;
-                //vozlisce.Desno = HelperBrisiZKoraku(vozlisce.Desno, min.Podatek, koraki);
-
-                //  naslednik bo uporabljen (animacija)
-                // dejanski swap in odstranitev izvedemo kasneje
-                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "nastavi naslednika (animacija)" });
-
-            }
-
-            return vozlisce;
         }
 
         public bool JePrazno()
@@ -181,30 +27,29 @@ namespace VizualizacijaIDD
             return drevo.koren == null;
         }
 
-        private Vozlisce Najmanjsi(Vozlisce vozlisce)
+        public void SestaviIzTabele(int[] podatki)
         {
-            while (vozlisce.Levo != null)
-            {
-                vozlisce = vozlisce.Levo;
-            }
-            return vozlisce;
+            drevo.SestaviIzTabele(podatki); // iz razreda IDD
         }
 
-        // Pripravi korake za vstavljanje, ne da bi spreminjal drevo
+        /// <summary>
+        /// Priprava korakov za vstavljanje
+        /// </summary>
         public List<Korak> PripraviVstavljanje(int podatek)
         {
-            var koraki = new List<Korak>();
-            HelperPripraviVstavljanje(drevo.koren, podatek, koraki);
-            this.koraki = koraki;
-            return koraki;
+            var k = new List<Korak>();
+            HelperPripraviVstavljanje(drevo.koren, podatek, k);
+            koraki = k;
+            return k;
         }
 
         private void HelperPripraviVstavljanje(Vozlisce vozlisce, int podatek, List<Korak> koraki)
         {
+            //Dodamo ustrezne korake, pri tem ne spreminjamo drevesa
             if (vozlisce == null)
             {
                 koraki.Add(new Korak { TrenutniPodatek = podatek, Akcija = "vstavi" });
-                return; // ne spreminjamo drevesa
+                return;
             }
 
             koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
@@ -225,17 +70,67 @@ namespace VizualizacijaIDD
             }
         }
 
-        // Pripravi korake za brisanje, ne da bi spreminjal drevo
+        /// <summary>
+        /// Dejansko vstavimo v drevo (med animacijo)
+        /// </summary>
+        public void VstaviZKoraki(int podatek)
+        {
+            drevo.Vstavi(podatek);
+        }
+
+        /// <summary>
+        /// Priprava korakov za iskanje
+        /// </summary>
+        public List<Korak> IskanjeZKoraki(int podatek)
+        {
+            var k = new List<Korak>();
+            bool najdeno = HelperIskanjeZKoraki(drevo.koren, podatek, k); // iz razreda IDD
+            if (!najdeno)
+                k.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
+            koraki = k;
+            return k;
+        }
+
+        private bool HelperIskanjeZKoraki(Vozlisce vozlisce, int podatek, List<Korak> koraki)
+        {
+            if (vozlisce == null)
+                return false;
+
+            //Ustrezni koraki
+
+            koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "primerjaj" });
+
+            if (podatek == vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "najdeno" });
+                return true;
+            }
+            else if (podatek < vozlisce.Podatek)
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi levo" });
+                return HelperIskanjeZKoraki(vozlisce.Levo, podatek, koraki);
+            }
+            else
+            {
+                koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "pojdi desno" });
+                return HelperIskanjeZKoraki(vozlisce.Desno, podatek, koraki);
+            }
+        }
+
+        /// <summary>
+        /// Priprava korakov za brisanje vozlišča
+        /// </summary>
         public List<Korak> PripraviBrisanje(int podatek)
         {
-            var koraki = new List<Korak>();
-            HelperPripraviBrisanje(drevo.koren, podatek, koraki);
-            this.koraki = koraki;
-            return koraki;
+            var k = new List<Korak>();
+            HelperPripraviBrisanje(drevo.koren, podatek, k);
+            koraki = k;
+            return k;
         }
 
         private void HelperPripraviBrisanje(Vozlisce vozlisce, int podatek, List<Korak> koraki)
         {
+            //Ustrezni koraki
             if (vozlisce == null)
             {
                 koraki.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
@@ -257,37 +152,15 @@ namespace VizualizacijaIDD
             else
             {
                 koraki.Add(new Korak { TrenutniPodatek = vozlisce.Podatek, Akcija = "brisanje vozlišča" });
-                // ne spreminjamo drevesa
             }
         }
 
-        public Vozlisce DejanskoBrisi(int podatek)
+        /// <summary>
+        /// Dejansko brisanje elementa v drevesu
+        /// </summary>
+        public void DejanskoBrisi(int podatek)
         {
-            drevo.koren = HelperDejanskoBrisi(drevo.koren, podatek);
-            return drevo.koren;
-        }
-
-        private Vozlisce HelperDejanskoBrisi(Vozlisce vozlisce, int podatek)
-        {
-            if (vozlisce == null) return null;
-
-            if (podatek < vozlisce.Podatek)
-                vozlisce.Levo = HelperDejanskoBrisi(vozlisce.Levo, podatek);
-            else if (podatek > vozlisce.Podatek)
-                vozlisce.Desno = HelperDejanskoBrisi(vozlisce.Desno, podatek);
-            else
-            {
-                // tukaj dejansko izbrišeš vozlišče
-                if (vozlisce.Levo == null) return vozlisce.Desno;
-                if (vozlisce.Desno == null) return vozlisce.Levo;
-
-                // vozlišče z dvema otrokoma
-                Vozlisce min = Najmanjsi(vozlisce.Desno);
-                vozlisce.Podatek = min.Podatek;
-                vozlisce.Desno = HelperDejanskoBrisi(vozlisce.Desno, min.Podatek);
-            }
-
-            return vozlisce;
+            drevo.Brisi(podatek);
         }
 
 
