@@ -84,7 +84,7 @@ namespace VizualizacijaIDD
         public List<Korak> IskanjeZKoraki(int podatek)
         {
             var k = new List<Korak>();
-            bool najdeno = HelperIskanjeZKoraki(drevo.koren, podatek, k); // iz razreda IDD
+            bool najdeno = HelperIskanjeZKoraki(drevo.koren, podatek, k);
             if (!najdeno)
                 k.Add(new Korak { TrenutniPodatek = null, Akcija = "napaka - podatek ne obstaja" });
             koraki = k;
